@@ -2,7 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import cityImg from '../img/city_bg.jpg';
 
-const InitialScreen = () => (
+const InitialScreen = ({ history }) => (
   <div style={style.container}>
     <div style={style.verticalAlign}>
       <span style={style.title}>Findle</span>
@@ -13,6 +13,7 @@ const InitialScreen = () => (
           backgroundColor="#EEE"
           labelColor="#f4a556"
           style={style.button}
+          onClick={() => history.push('login')}
           fullWidth
         />
         <RaisedButton
@@ -20,6 +21,7 @@ const InitialScreen = () => (
           backgroundColor="#EEE"
           labelColor="#f4a556"
           style={style.button}
+          onClick={() => history.push('signUp')}
           fullWidth
         />
       </div>
@@ -40,7 +42,7 @@ const style = {
     left: 0,
     overflowY: 'auto',
     display: 'table',
-    height: '100%'
+    height: '100vh'
   },
   title: {
     fontSize: '3em',
@@ -59,7 +61,8 @@ const style = {
     color: '#FAFAFA'
   },
   buttons: {
-    marginTop: '35px'
+    marginTop: '35px',
+    padding: '0 20px'
   },
   button: {
     marginTop: '12px'
