@@ -14,11 +14,34 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/
       },
+      {
+        use: 'babel-loader',
+        test: /\.jsx$/,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 40000 }
+          },
+          'image-webpack-loader'
+        ]
+      }
     ]
   },
   plugins: [
     new htmlWebpackPlugin({
       template: 'src/index.html'
     })
-  ]
+  ],
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true
+  }
 }
