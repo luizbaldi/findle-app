@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 const fullscreen = (WrappedComponent, config) => {
   return class extends Component {
@@ -13,39 +14,39 @@ const fullscreen = (WrappedComponent, config) => {
     }
     render() {
       return (
-        <div style={style.container}>
-          <div style={config.verticalCenter ? style.form : null}>
-            <div style={style.content}>
+        <VerticalContainer>
+          <VerticalContent>
+            <Content>
               <WrappedComponent {...this.props} />
-            </div>
-          </div>
-        </div>
+            </Content>
+          </VerticalContent>
+        </VerticalContainer>
       );
     }
   }
 };
 
-const style = {
-  container: {
-    top: 0,
-    left: 0,
-    textAlign: 'center',
-    height: '100vh',
-    width: '100%',
-    display: 'table',
-    position: 'absolute'
-  },
-  form: {
-    minWidth: '350px',
-    padding: '12px',
-    verticalAlign: 'middle',
-    display: 'table-cell'
-  },
-  content: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '70%'
-  }
-};
+const VerticalContainer = styled.div`
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  display: table;
+  position: absolute;
+`;
+
+const VerticalContent = styled.div`
+  min-width: 350px;
+  padding: 12px;
+  vertical-align: middle;
+  display: table-cell;
+`;
+
+const Content = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+`;
 
 export default fullscreen;

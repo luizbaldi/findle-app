@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import fullscreen from '../components/Fullscreen.jsx';
+import styled from 'styled-components';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <div>
-        <span style={style.title}>Findle</span>
+        <Title>Findle</Title>
         <RaisedButton
           label="Login com Facebook"
           backgroundColor="#475993"
@@ -25,19 +26,22 @@ class LoginScreen extends Component {
           fullWidth
         />
         <TextField
+          floatingLabelText="Nome"
+          fullWidth
+        />
+        <TextField
+          floatingLabelText="E-mail"
+          fullWidth
+        />
+        <TextField
           floatingLabelText="Senha"
           type="password"
           fullWidth
         />
         <RaisedButton
-          label="Acessar"
+          label="Cadastrar"
           backgroundColor="#70e57d"
           labelColor="#fafafa"
-          style={style.button}
-          fullWidth
-        />
-        <FlatButton
-          label="Esqueci minha senha"
           style={style.button}
           fullWidth
         />
@@ -46,14 +50,15 @@ class LoginScreen extends Component {
   }
 }
 
+const Title = styled.span`
+  font-size: 3em;
+  display: block;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #f89f42;
+`;
+
 const style = {
-  title: {
-    fontSize: '3em',
-    display: 'block',
-    marginTop: '30px',
-    fontWeight: 600,
-    color: '#f89f42'
-  },
   button: {
     marginTop: '12px'
   }
