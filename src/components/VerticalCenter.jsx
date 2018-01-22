@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const fullscreen = (WrappedComponent, config) => {
+const verticalCenter = (WrappedComponent) => {
   return class extends Component {
-    constructor(props) {
-      super(props);
-    }
-    componentWillMount() {
-      const defaultConfig = {
-        verticalCenter: false
-      };
-      config = Object.assign(defaultConfig, config);
-    }
     render() {
       return (
         <VerticalContainer>
@@ -24,6 +16,10 @@ const fullscreen = (WrappedComponent, config) => {
       );
     }
   }
+};
+
+verticalCenter.PropTypes = {
+  WrappedComponent: PropTypes.element.isRequired
 };
 
 const VerticalContainer = styled.div`
@@ -49,4 +45,4 @@ const Content = styled.div`
   width: 80%;
 `;
 
-export default fullscreen;
+export default verticalCenter;

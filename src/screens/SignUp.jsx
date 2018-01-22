@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import fullscreen from '../components/Fullscreen.jsx';
+import verticalCenter from '../components/VerticalCenter.jsx';
 import styled from 'styled-components';
 
-class LoginScreen extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
   }
@@ -64,4 +64,4 @@ const style = {
   }
 }
 
-export default fullscreen(LoginScreen, { verticalCenter: true });
+export default verticalCenter(SignUp);

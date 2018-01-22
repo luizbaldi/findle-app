@@ -1,72 +1,72 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import cityImg from '../img/city_bg.jpg';
+import verticalCenter from '../components/VerticalCenter.jsx';
+import styled from 'styled-components';
+import Button from '../components/Button.jsx';
 
 const InitialScreen = ({ history }) => (
-  <div style={style.container}>
-    <div style={style.verticalAlign}>
-      <span style={style.title}>Findle</span>
-      <span style={style.subtitle}>Encontre e contribua com locais próximos a você :)</span>
-      <div style={style.buttons}>
-        <RaisedButton
-          label="LOGIN"
-          backgroundColor="#EEE"
-          labelColor="#f4a556"
-          style={style.button}
-          onClick={() => history.push('login')}
-          fullWidth
-        />
-        <RaisedButton
-          label="CRIAR CONTA"
-          backgroundColor="#EEE"
-          labelColor="#f4a556"
-          style={style.button}
+  <Container>
+    <VerticalAlign>
+      <Title>Findle</Title>
+      <Subtitle>Encontre em segundos o parceiro ideal para sua estratégia digital!</Subtitle>
+      <ButtonsContainer>
+        <Button
+          label="CADASTRAR"
+          backgroundColor="#4EF27F"
+          labelColor="#2a4755"
           onClick={() => history.push('signUp')}
-          fullWidth
+          bigbutton
         />
-      </div>
-    </div>
-  </div>
+        <Button
+          label="LOGIN"
+          backgroundColor="#2A4755"
+          labelColor="#fafafa"
+          onClick={() => history.push('login')}
+        />
+      </ButtonsContainer>
+    </VerticalAlign>
+  </Container>
 );
 
-const style = {
-  container: {
-    textAlign: 'center',
-    padding: '16px',
-    backgroundImage: `url(${cityImg})`,
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    overflowY: 'auto',
-    display: 'table',
-    height: '100vh'
-  },
-  title: {
-    fontSize: '3em',
-    display: 'block',
-    marginTop: '30px',
-    color: '#FAFAFA',
-    fontWeight: 600
-  },
-  verticalAlign: {
-    display: 'table-cell',
-    verticalAlign: 'middle'
-  },
-  subtitle: {
-    marginTop: '40px',
-    display: 'block',
-    color: '#FAFAFA'
-  },
-  buttons: {
-    marginTop: '35px',
-    padding: '0 20px'
-  },
-  button: {
-    marginTop: '12px'
-  }
-};
+const Container = styled.div`
+  text-align: center;
+  background-image: url(${ cityImg });
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: table;
+  height: 100vh;
+  width: 100%;
+  overflow-x: auto;
+`;
+
+const VerticalAlign = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+`;
+
+const Title = styled.span`
+  font-size: 3em;
+  display: block;
+  margin-top: 30px;
+  color: #FAFAFA;
+  font-weight: 600;
+`;
+
+const Subtitle = styled.span`
+  margin-top: 40px;
+  display: block;
+  color: #FAFAFA;
+`;
+
+const ButtonsContainer = styled.div`
+  padding: 0 20px;
+  width: 60%;
+  margin: 35px auto 0 auto;
+`;
 
 export default InitialScreen;
